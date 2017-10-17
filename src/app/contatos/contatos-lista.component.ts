@@ -13,9 +13,10 @@ export class ContatosListaComponent implements OnInit {
   constructor(private contatoService: ContatoService) {}
 
   ngOnInit(): void {
-    this.contatoService.getContatos().then((contatos: Contato[]) => {
+    this.contatoService.getContatos()
+      .then((contatos: Contato[]) => {
         this.contatos = contatos;
-    }).then(error => console.log('Contatos Error: ', error));
+    }).catch(error => console.log('Contatos Error: ', error));
   }
 
 }
